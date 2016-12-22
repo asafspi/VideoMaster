@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.video.videomaster">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.WebViewActivity" />
+        <activity
+            android:name=".activities.DownloadDialogActivity"
+            android:theme="@style/MainTheme" />
+        <activity android:name=".activities.VineActivity" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="648616db1fb4b35e79e045a0c05c83a38935e340" />
+        <activity android:name=".activities.DownloadsActivity" />
+        <activity android:name=".activities.DeleteDialogActivity" />
+        <activity android:name=".activities.FloatingButtonActivity"
+            android:theme="@style/MainTheme"/>
+
+        <service
+            android:name=".ClipboardService"
+            android:exported="true"
+            android:process=":ServiceProcess" />
+
+
+    </application>
+
+</manifest>

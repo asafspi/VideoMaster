@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Video Master</string>
+    <string name="loading_video">loading</string>
+    <string name="hint_search">Search…</string>
+    <string name="vimeo_video_placeholder" translatable="false">Views:%1$d\nLikes:%2$d</string>
+
+    <string name="splash_footer">Brought to you by BelMediaGroup</string>
+    <string name="menu_header_downloads">MY DOWNLOADS</string>
+    <string name="menu_delete_viedo">DELETE VIDEOS</string>
+    <string name="menu_header_about">ABOUT</string>
+    <string name="save_video_as">SAVE VIDEO AS</string>
+    <string name="free_space_internal">Free space on internal memory</string>
+    <string name="free_space_sd">Free space on SD card</string>
+    <string name="delete_video">DELETE VIDEO</string>
+    <string name="are_you_sure">Are you sure you want to delete the file?</string>
+    <string name="delete_completed">FILE SUCCESSFULLY DELETED!</string>
+    <string name="help">Search for videos, press on a video to play it or click the download button to download it.</string>
+    <string name="title_feedback">Feedback</string>
+    <string name="feedback_description"><b>Tell us what you think</b>\n\nyour opinion matters to us.\nPlease share your feedback\nso we can make your experience better</string>
+    <string name="feedback_description_email"><b>Enter email address</b></string>
+    <string name="suggestion">Suggestion</string>
+    <string name="problem">Problem</string>
+    <string name="send">Send</string>
+    <string name="thank_you">Thank you!</string>
+    <string name="permission_title">Permission request</string>
+    <string name="permission_message">We need storage permission in order to save videos to your device and display your saved videos.</string>
+    <string name="count_place_holder">%1$d Videos</string>
+    <string name="play_the_video_in_order_to_download">Play the video in order to download it</string>
+    <string name="paste_the_url_and_play_the_video_for_download">Paste the Url here</string>
+    <string name="download">Download</string>
+</resources>
