@@ -42,6 +42,8 @@
             android:hint="@string/paste_the_url_and_play_the_video_for_download"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/textView"
             android:id="@+id/instagramEditText"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
@@ -54,7 +56,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/instagramEditText"
+            android:layout_below="@+id/buttonDownload"
             android:id="@+id/textView" />
     </RelativeLayout>
 </RelativeLayout>

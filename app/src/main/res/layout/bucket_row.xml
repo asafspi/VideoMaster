@@ -25,7 +25,7 @@
         android:layout_height="80dp"
         android:id="@+id/rowImageView"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/ic_folder"
+        android:src="@drawable/folder_icon"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

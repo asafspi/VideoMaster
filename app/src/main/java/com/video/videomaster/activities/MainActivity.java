@@ -47,11 +47,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageView vineImage = (ImageView)findViewById(R.id.vineImageView);
         ImageView facebookImageView = (ImageView)findViewById(R.id.facebookImageView);
         ImageView instagramImageView = (ImageView)findViewById(R.id.instagramImageView);
+        ImageView youtubeImageView = (ImageView)findViewById(R.id.youTubeImageView);
+        ImageView dailyMotionImageView = (ImageView)findViewById(R.id.dailyImageView);
+        ImageView spotifyImageView = (ImageView)findViewById(R.id.spotifyImageView);
         vuImage.setOnClickListener(this);
         vimeoImage.setOnClickListener(this);
         vineImage.setOnClickListener(this);
         facebookImageView.setOnClickListener(this);
         instagramImageView.setOnClickListener(this);
+        youtubeImageView.setOnClickListener(this);
+        dailyMotionImageView.setOnClickListener(this);
+        spotifyImageView.setOnClickListener(this);
     }
 
     @Override
@@ -77,6 +83,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(this, WebViewActivity.class);
                 intent.putExtra(WebViewActivity.URL, WebViewActivity.INSTAGRAM);
                 break;
+            case R.id.youTubeImageView:
+                intent = new Intent(this, WebViewActivity.class);
+                intent.putExtra(WebViewActivity.URL, WebViewActivity.YOUTUBE);
+                break;
+            case R.id.dailyImageView:
+                intent = new Intent(this, WebViewActivity.class);
+                intent.putExtra(WebViewActivity.URL, WebViewActivity.DAILYMOTION);
+                break;
+            case R.id.spotifyImageView:
+                intent = new Intent(this, WebViewActivity.class);
+                intent.putExtra(WebViewActivity.URL, WebViewActivity.SPOTIFY);
+                break;
             default:
                 break;
         }
@@ -99,10 +117,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(this, DownloadsActivity.class);
                 startActivity(intent);
                 return true;
-
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 }

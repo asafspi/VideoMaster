@@ -17,6 +17,7 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.video.videomaster.ClipboardService;
@@ -31,6 +32,7 @@ import uk.breedrapps.vimeoextractor.VimeoVideo;
 
 public class WebViewActivity extends AppCompatActivity implements View.OnClickListener {
     private WebView webView;
+    private TextView playTheVideoTextView;
     private EditText instagramEditText;
     public static String URL = "url";
     public static String VIMEO = "https://vimeo.com";
@@ -38,11 +40,13 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
     public static String Vine = "https://vimeo.com";
     public static String INSTAGRAM = "https://www.instagram.com/";
     public static String VUCLIP = "http://vuclip.com/";
+    public static String YOUTUBE = "https://www.youtube.com/";
+    public static String DAILYMOTION = "http://www.dailymotion.com/";
+    public static String SPOTIFY = "https://www.spotify.com/";
 
     @Override
     protected void onDestroy() {
-        webView.loadUrl(null
-        );
+        webView.loadUrl(null);
         webView.destroy();
         super.onDestroy();
     }
@@ -95,8 +99,8 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
                 webView.setWebViewClient(new WebViewClient() {
                     @Override
                     public void onLoadResource(WebView view, String url) {
-                        Log.v("ZAQ", url);
-                        if (url.contains("videos-")) {
+                        Log.d("ZAQ", url);
+                        if (url.contains(".mp4")) {
                             Utils.downloadFile(getApplicationContext(), url, "Instagram" + ".mp4");
                         }
                         super.onLoadResource(view, url);
@@ -116,6 +120,22 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
                         super.onLoadResource(view, url);
                     }
                 });
+                break;
+            case "https://www.youtube.com/":
+                btnDownload.setVisibility(View.GONE);
+                playTheVideoTextView.setVisibility(View.GONE);
+                webView.loadUrl(urlToLaunch);
+                break;
+            case "http://www.dailymotion.com/":
+                btnDownload.setVisibility(View.GONE);
+                playTheVideoTextView.setVisibility(View.GONE);
+                webView.loadUrl(urlToLaunch);
+                break;
+            case "https://www.spotify.com/":
+                btnDownload.setVisibility(View.GONE);
+                playTheVideoTextView.setVisibility(View.GONE);
+                webView.loadUrl(urlToLaunch);
+                break;
         }
     }
 
@@ -144,7 +164,7 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         settings.setLoadWithOverviewMode(true);
         settings.setLoadWithOverviewMode(true);
 
-
+        playTheVideoTextView = (TextView)findViewById(R.id.textView);
         btnDownload = (Button) findViewById(R.id.buttonDownload);
         btnDownload.setOnClickListener(this);
         instagramEditText = (EditText)findViewById(R.id.instagramEditText);
@@ -199,10 +219,6 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
             if(url.contains("https://player.vimeo.com/log/play")){
                 btnDownload.setVisibility(View.GONE);
             }
-//            if (!active){
-//                active = url.equals("https://player.vimeo.com/log/play");
-//                return;
-//            }
             List<String> list = Uri.parse(url).getPathSegments();
             int index = list.indexOf("video");
             if (index > 0) {

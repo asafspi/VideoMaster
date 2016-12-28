@@ -62,7 +62,7 @@ public class ClipboardService extends Service {
                                     .setContentIntent(contentIntent);
                     NotificationManager mNotificationManager =
                             (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    mNotificationManager.notify(001, mBuilder.build());
+                    mNotificationManager.notify(1, mBuilder.build());
 
                     ////Add Floating button
                     WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
@@ -71,14 +71,15 @@ public class ClipboardService extends Service {
                             WindowManager.LayoutParams.TYPE_PHONE,
                             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                             PixelFormat.TRANSLUCENT);
-                    layoutParams.gravity = Gravity.BOTTOM | Gravity.RIGHT;
-                    layoutParams.x = 50;
-                    layoutParams.y = 50;
+                    layoutParams.gravity = Gravity.BOTTOM | Gravity.CENTER;
+                    layoutParams.x = 100;
+                    layoutParams.y = 100;
                     @SuppressLint("InflateParams") final
                     View btn = ((LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE))
-                            .inflate(R.layout.button, null);
+                            .inflate(R.layout.toast_custom, null);
                     final WindowManager windowManager = ((WindowManager) getSystemService(WINDOW_SERVICE));
                     windowManager.addView(btn, layoutParams);
+                    btn.animate().rotation(360).setStartDelay(250).start();
                     btn.setOnTouchListener(new View.OnTouchListener() {
                         @Override
                         public boolean onTouch(View v, MotionEvent event) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
@@ -11,57 +11,97 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.video.videomaster.activities.MainActivity">
 
-    <ImageView
-        android:id="@+id/vuImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/vimeoImageView"
-        android:layout_alignStart="@+id/vimeoImageView"
-        android:layout_below="@+id/vimeoImageView"
-        android:layout_marginTop="16dp"
-        app:srcCompat="@drawable/vuclip" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/vineImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        app:srcCompat="@drawable/vines" />
+        <ImageView
+            android:id="@+id/vuImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/vimeoImageView"
+            android:layout_alignStart="@+id/vimeoImageView"
+            android:layout_below="@+id/vimeoImageView"
+            android:layout_marginTop="16dp"
+            app:srcCompat="@drawable/vuclip" />
 
-    <ImageView
-        android:id="@+id/vimeoImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"
-        app:srcCompat="@drawable/vimeo" />
+        <ImageView
+            android:id="@+id/vineImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="28dp"
+            android:layout_marginRight="28dp"
+            app:srcCompat="@drawable/vines" />
 
-    <ImageView
-        android:id="@+id/instagramImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/vuImageView"
-        android:layout_alignEnd="@+id/vineImageView"
-        android:layout_alignLeft="@+id/vineImageView"
-        android:layout_alignRight="@+id/vineImageView"
-        android:layout_alignStart="@+id/vineImageView"
-        android:layout_alignTop="@+id/vuImageView"
-        app:srcCompat="@drawable/instagram" />
+        <ImageView
+            android:id="@+id/vimeoImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="28dp"
+            android:layout_marginStart="28dp"
+            app:srcCompat="@drawable/vimeo" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/fb"
-        android:layout_marginTop="16dp"
-        android:id="@+id/facebookImageView"
-        android:layout_below="@+id/vuImageView"
-        android:layout_alignRight="@+id/vuImageView"
-        android:layout_alignEnd="@+id/vuImageView" />
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/instagramImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/vuImageView"
+            android:layout_alignEnd="@+id/vineImageView"
+            android:layout_alignLeft="@+id/vineImageView"
+            android:layout_alignRight="@+id/vineImageView"
+            android:layout_alignStart="@+id/vineImageView"
+            android:layout_alignTop="@+id/vuImageView"
+            app:srcCompat="@drawable/instagram" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/fb"
+            android:layout_marginTop="16dp"
+            android:id="@+id/facebookImageView"
+            android:layout_below="@+id/vuImageView"
+            android:layout_alignRight="@+id/vuImageView"
+            android:layout_alignEnd="@+id/vuImageView" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/youtube"
+            android:id="@+id/youTubeImageView"
+            android:layout_alignTop="@+id/facebookImageView"
+            android:layout_alignLeft="@+id/instagramImageView"
+            android:layout_alignStart="@+id/instagramImageView" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/dailymotion"
+            android:layout_marginTop="21dp"
+            android:id="@+id/dailyImageView"
+            android:layout_below="@+id/facebookImageView"
+            android:layout_alignLeft="@+id/facebookImageView"
+            android:layout_alignStart="@+id/facebookImageView" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/spotify"
+            android:id="@+id/spotifyImageView"
+            android:layout_alignLeft="@+id/youTubeImageView"
+            android:layout_alignStart="@+id/youTubeImageView"
+            android:layout_alignRight="@+id/youTubeImageView"
+            android:layout_alignEnd="@+id/youTubeImageView"
+            android:layout_alignTop="@+id/dailyImageView"
+            android:layout_alignBottom="@+id/dailyImageView" />
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

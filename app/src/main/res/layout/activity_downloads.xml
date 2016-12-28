@@ -12,12 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:src="@drawable/downlaod_bar"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/top_color"/>
+        android:src="@drawable/download_bar"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/downloads_recycler"
