@@ -20,6 +20,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
 }
 
@@ -48,10 +52,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.github.ed-george:AndroidVimeoExtractor:1.0.1'
     compile 'com.vimeo.networking:vimeo-networking:1.1.0'
-    compile 'com.github.Commit451.YouTubeExtractor:youtubeextractor:2.1.0'
-    dependencies {
-        compile 'com.github.HaarigerHarald:android-youtubeExtractor:v1.4.0'
-    }
     allprojects {
         repositories {
             maven { url "https://jitpack.io" }
@@ -71,4 +71,6 @@ dependencies {
     }
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
+    compile files('libs/StartAppInApp-3.5.1.jar')
+    compile files('libs/revmob.jar')
 }

@@ -40,9 +40,10 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
     public static String Vine = "https://vimeo.com";
     public static String INSTAGRAM = "https://www.instagram.com/";
     public static String VUCLIP = "http://vuclip.com/";
-    public static String YOUTUBE = "https://www.youtube.com/";
+    public static String YOUTUBE = "https://m.youtube.com/";
     public static String DAILYMOTION = "http://www.dailymotion.com/";
     public static String SPOTIFY = "https://www.spotify.com/";
+    public static String TWITTER = "https://mobile.twitter.com/";
 
     @Override
     protected void onDestroy() {
@@ -121,10 +122,20 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
                     }
                 });
                 break;
-            case "https://www.youtube.com/":
+            case "https://m.youtube.com/":
                 btnDownload.setVisibility(View.GONE);
                 playTheVideoTextView.setVisibility(View.GONE);
                 webView.loadUrl(urlToLaunch);
+                webView.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public void onLoadResource(WebView view, String url) {
+                        Log.v("ZAQ", url);
+                        if (url.contains(".3gp")) {
+                            Utils.downloadFile(getApplicationContext(), url, "Vu Clip" + ".mp4");
+                        }
+                        super.onLoadResource(view, url);
+                    }
+                });
                 break;
             case "http://www.dailymotion.com/":
                 btnDownload.setVisibility(View.GONE);
@@ -136,7 +147,13 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
                 playTheVideoTextView.setVisibility(View.GONE);
                 webView.loadUrl(urlToLaunch);
                 break;
+            case "https://mobile.twitter.com/":
+                btnDownload.setVisibility(View.GONE);
+                playTheVideoTextView.setVisibility(View.GONE);
+                webView.loadUrl(urlToLaunch);
+                break;
         }
+
     }
 
     private void setViews() {
@@ -151,6 +168,10 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         settings.setDomStorageEnabled(true);
         settings.setAllowFileAccess(true);
         settings.setAppCacheEnabled(true);
+        settings.setPluginState(WebSettings.PluginState.ON);
+        settings.setJavaScriptEnabled(true);
+        settings.setUseWideViewPort(true);
+        settings.setLoadWithOverviewMode(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             settings.setAllowFileAccessFromFileURLs(true);
             settings.setAllowUniversalAccessFromFileURLs(true);

@@ -23,8 +23,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import at.huber.youtubeExtractor.YouTubeUriExtractor;
-import at.huber.youtubeExtractor.YtFile;
 
 public class Utils {
 
@@ -190,25 +188,6 @@ public class Utils {
         return resultBuffer.toString();
     }
 
-    static void youTubeDownload(String url, final Context context){
-
-        String youtubeLink = "https://www.youtube.com/watch?v=dAsNMkBKpeU";
-
-        YouTubeUriExtractor ytEx = new YouTubeUriExtractor(context) {
-            @Override
-            public void onUrisAvailable(String videoId, String videoTitle, SparseArray<YtFile> ytFiles) {
-                if (ytFiles != null) {
-                    int itag = 22;
-                    String downloadUrl = ytFiles.get(itag).getUrl();
-
-                    downloadFile(context, downloadUrl, "test3.mp3");
-                }
-            }
-        };
-
-        ytEx.execute(youtubeLink);
-
-    }
     static void getVideoFromInstagram(final String url, String fileName){
 
         new Thread(new Runnable() {

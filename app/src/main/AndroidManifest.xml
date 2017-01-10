@@ -10,6 +10,11 @@
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    Raw
     />
 
     <application
@@ -30,6 +35,30 @@
             android:name=".activities.DownloadDialogActivity"
             android:theme="@style/MainTheme" />
         <activity android:name=".activities.VineActivity" />
+
+        <!--Start App-->
+
+        <activity android:name="com.startapp.android.publish.list3d.List3DActivity"
+            android:theme="@android:style/Theme" />
+
+        <activity android:name="com.startapp.android.publish.OverlayActivity"
+            android:theme="@android:style/Theme.Translucent"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+
+        <activity android:name="com.startapp.android.publish.FullScreenActivity"
+            android:theme="@android:style/Theme"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+
+        <activity
+            android:name="com.revmob.ads.fullscreen.FullscreenActivity"
+            android:configChanges="keyboardHidden|orientation" >
+        </activity>
+
+        <activity
+            android:name="com.revmob.FullscreenActivity"
+            android:theme="@android:style/Theme.Translucent"
+            android:configChanges="keyboardHidden|orientation">
+        </activity>
 
         <meta-data
             android:name="io.fabric.ApiKey"

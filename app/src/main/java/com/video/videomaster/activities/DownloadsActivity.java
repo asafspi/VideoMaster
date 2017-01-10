@@ -5,12 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.video.videomaster.objects.Folder;
+import com.startapp.android.publish.StartAppAd;
 import com.video.videomaster.R;
 import com.video.videomaster.adapters.RecyclerAdapterDownloads;
 import com.video.videomaster.adapters.RecyclerAdapterVideoList;
-import com.video.videomaster.utils.Utils;
 import com.video.videomaster.events.MessageEvent;
+import com.video.videomaster.objects.Folder;
+import com.video.videomaster.utils.Utils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -58,6 +59,7 @@ public class DownloadsActivity extends AppCompatActivity {
             insideFolder = false;
             return;
         }
+        StartAppAd.onBackPressed(this);
         super.onBackPressed();
     }
 
@@ -82,4 +84,5 @@ public class DownloadsActivity extends AppCompatActivity {
         }
         super.onResume();
     }
+
 }
