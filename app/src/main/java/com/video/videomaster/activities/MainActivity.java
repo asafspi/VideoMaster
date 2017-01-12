@@ -14,6 +14,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.revmob.RevMob;
 import com.revmob.RevMobAdsListener;
@@ -22,6 +24,7 @@ import com.startapp.android.publish.Ad;
 import com.startapp.android.publish.AdEventListener;
 import com.startapp.android.publish.StartAppAd;
 import com.startapp.android.publish.StartAppSDK;
+import com.startapp.android.publish.banner.Banner;
 import com.startapp.android.publish.nativead.NativeAdDetails;
 import com.startapp.android.publish.nativead.NativeAdPreferences;
 import com.startapp.android.publish.nativead.StartAppNativeAd;
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static String pathId;
     public final static int CODE_STORAGE_PERMISSION = 100;
     public static final int CODE_REQUEST_DELETE = 200;
+    private String startAppId = "208673432";
     private RevMob revmob;
     private RevMobFullscreen fullscreen;
     private boolean fullscreenIsLoaded;
@@ -47,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String startAppId = "208673432";
         StartAppSDK.init(this, startAppId, true);
         startAppNativeAd.loadAd(new NativeAdPreferences());
         checkPermission();
@@ -55,6 +58,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         fullscreenIsLoaded = false;
         revmob = RevMob.startWithListener(this, null, "5868cc144713185a029036d2");
+        // Get the Main relative layout of the entire activity
+        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.banner_layout);
+// Define StartApp Banner
+        Banner startAppBanner = new Banner(this);
+        RelativeLayout.LayoutParams bannerParameters =
+                new RelativeLayout.LayoutParams(
+                        RelativeLayout.LayoutParams.WRAP_CONTENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT);
+        bannerParameters.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        bannerParameters.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+// Add to main Layout
+        mainLayout.addView(startAppBanner, bannerParameters);
     }
 
     public void loadFullscreen() {
@@ -134,6 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dailyMotionImageView.setOnClickListener(this);
         spotifyImageView.setOnClickListener(this);
         moreApps.setOnClickListener(this);
+
     }
 
     @Override
